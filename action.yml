@@ -1,0 +1,16 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  # If we add entrypoint on this action file, this entrypoint will override the entrypoint defined in Dockerfile.
+  args: # args will override any CMD if defined in the Dockerfile
+    - ${{ inputs.who-to-greet }}
