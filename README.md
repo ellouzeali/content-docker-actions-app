@@ -14,11 +14,11 @@ This action prints "Hello World" to the log or "Hello" + the name of a person to
 
 The time we greeted you.
 **To set a github action output using shell, you should use this syntax**
-```
+```sh
 echo "::set-output name=[variable_name]::[variable_value]"
 ```
 Exemple:
-```
+```sh
 echo "::set-output name=user_name::Ali"
 ```
 ## Example usage
