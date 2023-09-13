@@ -13,13 +13,28 @@ This action prints "Hello World" to the log or "Hello" + the name of a person to
 ### `time`
 
 The time we greeted you.
-**To set a github action output using shell, you should use this syntax**
+
+
+## To set a github action output using shell, you should use this syntax:
+
+The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+
+<del>
+
 ```sh
-echo "::set-output name=[variable_name]::[variable_value]"
+echo "::set-output name={variable_name}::{variable_value}"
+```
+</del>
+
+**New Syntax:**
+
+```sh
+echo "{name}={value}" >> "$GITHUB_OUTPUT"
 ```
 Exemple:
 ```sh
-echo "::set-output name=user_name::Ali"
+
+echo "user_name=Ali" >> "$GITHUB_OUTPUT"
 ```
 ## Example usage
 
